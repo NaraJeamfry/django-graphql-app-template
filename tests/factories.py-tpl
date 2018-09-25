@@ -1,0 +1,9 @@
+import factory
+
+
+class {{ camel_case_app_name }}Factory(factory.django.DjangoModelFactory):
+    {{ app_name }}_field = factory.Faker('email')
+
+    class Meta:
+        model = '{{ app_name }}.{{ camel_case_app_name }}'
+        django_get_or_create = ['{{ app_name }}_field']

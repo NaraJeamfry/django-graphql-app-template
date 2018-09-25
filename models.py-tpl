@@ -1,0 +1,5 @@
+from django.db import models
+
+
+class {{ camel_case_app_name }}(models.Model):
+    {{ app_name }}_field = models.CharField(verbose_name='{{ camel_case_app_name }}', max_length=255)

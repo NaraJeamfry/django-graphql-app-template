@@ -1,0 +1,19 @@
+import graphene
+from graphene_django import DjangoObjectType
+
+from .models import {{ camel_case_app_name }}
+
+
+class {{ camel_case_app_name }}Type(DjangoObjectType):
+    class Meta:
+        model = {{ camel_case_app_name }}
+
+
+class Query(graphene.ObjectType):
+    {{ app_name }} = graphene.Field({{ camel_case_app_name }}Type)
+
+    def resolve_{{ app_name }}(self, info, **kwargs):
+        return {{ camel_case_app_name }}.objects.all()
+
+class Mutation(graphene.ObjectType):
+    pass

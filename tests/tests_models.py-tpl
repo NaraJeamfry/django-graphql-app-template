@@ -1,0 +1,16 @@
+from test_plus.test import TestCase
+
+from ..models import {{ camel_case_app_name }}
+from .factories import {{ camel_case_app_name }}Factory
+
+
+class Test{{ camel_case_app_name }}(TestCase):
+    def setUp(self):
+        self.{{ app_name }} = {{ camel_case_app_name }}Factory()
+
+    def test_field_is_set(self):
+        object = {{ camel_case_app_name }}.objects.get(id = self.{{ app_name }}.id)
+        self.assertEqual(object, self.{{ app_name }})
+
+    def test_object_exists(self):
+        self.assertIsNotNone({{ camel_case_app_name }}.objects.all())
